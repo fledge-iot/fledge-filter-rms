@@ -30,11 +30,15 @@
 			 "\"rawData\": {\"description\": \"Switch to control the inclusion of the raw data in the output\", " \
 				"\"type\": \"boolean\", " \
 				"\"default\": \"false\", " \
-				"\"order\" : \"4\", \"displayName\": \"Include Raw Data\" }, " \
+				"\"order\" : \"5\", \"displayName\": \"Include Raw Data\" }, " \
 			 "\"peak\": {\"description\": \"Include peak to peak values in readings\", " \
 				"\"type\": \"boolean\", " \
 				"\"default\": \"false\", " \
 				"\"order\" : \"3\", \"displayName\": \"Include Peak Values\" }, " \
+			 "\"crest\": {\"description\": \"Include crest values in readings\", " \
+				"\"type\": \"boolean\", " \
+				"\"default\": \"false\", " \
+				"\"order\" : \"4\", \"displayName\": \"Include Crest Values\" }, " \
 			 "\"assetName\": {\"description\": \"Name of the output asset for the RMS data\", " \
 				"\"type\": \"string\", " \
 				"\"default\": \"%a RMS\", \"order\": \"2\", \"displayName\": \"RMS Asset name\", \"mandatory\": \"true\" }, " \
@@ -49,7 +53,7 @@
 				"\"displayName\" : \" Sample size\"}, " \
 			 "\"match\": {\"description\": \"An optional regular expression to match in the asset name\", " \
 				"\"type\": \"string\", " \
-				"\"default\": \".*\", \"order\": \"5\", \"displayName\": \"Asset filter\" } " \
+				"\"default\": \".*\", \"order\": \"6\", \"displayName\": \"Asset filter\" } " \
 			" }"
 using namespace std;
 

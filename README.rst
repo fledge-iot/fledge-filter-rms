@@ -43,6 +43,10 @@ peak
   A switch to include peak to peak measurements for the same data set
   as the RMS measurement
 
+crest
+  A switch to include crest measurements for the same data set
+  as the RMS measurement
+
 match
   A  regular expression to limit the asset names on which this filter
   operations
