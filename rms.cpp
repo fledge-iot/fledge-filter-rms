@@ -216,6 +216,10 @@ map<string, Reading *>	readings;
 			it->second->samples = 0;
 			DatapointValue	dpv(value);
 			DatapointValue  peak(it->second->peak_max - it->second->peak_min);
+			double crest = 0.0;
+			if (value != 0.0)
+				crest = (it->second->peak_max - it->second->peak_min) / value;
+			DatapointValue dpc(crest);
 
 			string assetName = m_assetName;
 			/*
@@ -235,6 +239,10 @@ map<string, Reading *>	readings;
 				{
 					ait->second->addDatapoint(new Datapoint(it->first.second + "peak", peak));
 				}
+				if (m_sendCrest && crest != 0.0)
+				{
+					ait->second->addDatapoint(new Datapoint(it->first.second + "crest", dpc));
+				}
 			}
 			else
 			{
@@ -242,6 +250,10 @@ map<string, Reading *>	readings;
 				if (m_sendPeak)
 				{
 					tmpReading->addDatapoint(new Datapoint(it->first.second + "peak", peak));
+				}
+				if (m_sendCrest && crest != 0.0)
+				{
+					tmpReading->addDatapoint(new Datapoint(it->first.second + "crest", dpc));
 				}
 				readings.insert(pair<string, Reading *>(it->first.first, tmpReading));
 			}
@@ -312,5 +324,13 @@ RMSFilter::reconfigure(const string& newConfig)
 	else
 	{
 		m_sendPeak = false;
+	}
+	if (m_config.itemExists("crest"))
+	{
+		m_sendCrest = m_config.getValue("crest").compare("true") == 0 ? true : false;
+	}
+	else
+	{
+		m_sendCrest = false;
 	}
 }
