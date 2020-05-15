@@ -43,6 +43,7 @@ class RMSFilter : public FledgeFilter {
 		unsigned int	m_sampleSize;
 		bool		m_sendRawData;
 		bool		m_sendPeak;
+		bool		m_sendCrest;
 		std::string	m_assetName;
 		std::string	m_assetFilter;
 		std::map<std::pair<std::string, std::string>, RMSData *>
